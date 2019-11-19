@@ -6,7 +6,7 @@ public class FirstClass {
         notebook.checkWeight();
         notebook.yearPriceComparison();
 
-        Notebook heavyNotebook = new Notebook("3500g", 1500, 2011 );
+        Notebook heavyNotebook = new Notebook("3500g", 1500, 2011);
         System.out.println(heavyNotebook.weight + " " + heavyNotebook.price);
         heavyNotebook.checkPrice();
         heavyNotebook.checkWeight();
@@ -29,5 +29,11 @@ public class FirstClass {
         gamingNotebook.checkPrice();
         gamingNotebook.checkWeight();
         gamingNotebook.yearPriceComparison();
+
+        LeapYear year = new LeapYear(2017);
+        Boolean a = year.isLeap();
+        Boolean b = year.isLeap2();
+        System.out.println(a);
+        System.out.println(b);
     }
 }
