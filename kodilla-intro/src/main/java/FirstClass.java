@@ -30,16 +30,7 @@ public class FirstClass {
         gamingNotebook.checkWeight();
         gamingNotebook.yearPriceComparison();
 
-        LeapYear year = new LeapYear(2017);
-        Boolean a = year.isLeap();
-        Boolean b = year.isLeap2();
-        System.out.println(a);
-        System.out.println(b);
 
-        int[] nums = new int[]{5, 7, 12, 3, 49, 2, 11, 4, 19};
-        Loops myLoop = new Loops();
-        Integer myArraySum = myLoop.getArraySum(nums);
-        System.out.println(myArraySum);
 
     }
 }
