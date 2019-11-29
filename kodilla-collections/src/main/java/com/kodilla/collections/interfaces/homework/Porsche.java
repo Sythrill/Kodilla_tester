@@ -2,14 +2,14 @@ package com.kodilla.collections.interfaces.homework;
 
 import java.util.Random;
 
-public class Porshe implements Car {
+public class Porsche implements Car {
     private int accelerationFactor;
     private int breakingFactor;
     private int turbo;
     private int abs;
     Random random = new Random();
 
-    public Porshe(int accelerationFactor, int breakingFactor, int turbo, int abs) {
+    public Porsche(int accelerationFactor, int breakingFactor, int turbo, int abs) {
         this.accelerationFactor = accelerationFactor;
         this.breakingFactor = breakingFactor;
         this.turbo = turbo;
@@ -17,7 +17,16 @@ public class Porshe implements Car {
     }
 
     @Override
+    public int getAccelerationFactor() {
+        return accelerationFactor;
+    }
 
+    @Override
+    public int getBreakingFactor(){
+        return breakingFactor;
+    }
+
+    @Override
     public int getSpeed(int speedUp, int speedDown) {
         return (speedUp - speedDown);
     }

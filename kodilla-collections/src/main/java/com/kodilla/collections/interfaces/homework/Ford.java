@@ -18,6 +18,16 @@ public class Ford implements Car {
     }
 
     @Override
+    public int getAccelerationFactor() {
+        return accelerationFactor;
+    }
+
+    @Override
+    public int getBreakingFactor(){
+        return breakingFactor;
+    }
+
+    @Override
     public int getSpeed(int speedUp, int speedDown) {
         return (speedUp - speedDown) + tools;
     }
@@ -33,5 +43,6 @@ public class Ford implements Car {
         int accelerator = random.nextInt(11);
         return accelerator * breakingFactor;
     }
+
 
 }

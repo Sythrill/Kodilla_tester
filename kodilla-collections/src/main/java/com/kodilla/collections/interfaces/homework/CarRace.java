@@ -6,8 +6,8 @@ public class CarRace {
         Mercedes mercedes = new Mercedes(3, 5, 12, 33);
         doRace(mercedes);
 
-        Porshe porshe = new Porshe(7, 7, 9, 22);
-        doRace(porshe);
+        Porsche porsche = new Porsche(7, 7, 9, 22);
+        doRace(porsche);
 
         Ford ford = new Ford(12, 26, 7);
         doRace(ford);

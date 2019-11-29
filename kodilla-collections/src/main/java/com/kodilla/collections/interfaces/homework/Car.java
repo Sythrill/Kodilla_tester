@@ -1,5 +1,7 @@
 package com.kodilla.collections.interfaces.homework;
 
+import java.util.Random;
+
 public interface Car {
 
     int getSpeed(int speedUp, int speedDown);
@@ -7,4 +9,8 @@ public interface Car {
     int increaseSpeed();
 
     int decreaseSpeed();
+
+    int getAccelerationFactor();
+
+    int getBreakingFactor();
 }
