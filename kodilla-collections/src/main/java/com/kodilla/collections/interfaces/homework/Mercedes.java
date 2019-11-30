@@ -4,16 +4,16 @@ import java.util.Random;
 
 public class Mercedes implements Car {
 
-    private int accelerationFactor;
-    private int breakingFactor;
+    public static int accelerationFactor;
+    public static int breakingFactor;
     private int turbo;
     private int driver;
 
     Random random = new Random();
 
-    public Mercedes(int accelerationFactor, int breakingFactor, int turbo, int driver) {
-        this.accelerationFactor = accelerationFactor;
-        this.breakingFactor = breakingFactor;
+    public Mercedes(int turbo, int driver) {
+        accelerationFactor = getAccelerationFactor();
+        breakingFactor = getBreakingFactor();
         this.turbo = turbo;
         this.driver = driver;
     }

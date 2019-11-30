@@ -11,7 +11,7 @@ public class CarApplication {
 
     public static void main(String[] args) {
         Random random = new Random();
-        Car[] cars = new Car[random.nextInt(16) + 1];
+        Car[] cars = new Car[random.nextInt(15) + 1];
         for (int i = 0; i < cars.length; i++) {
             cars[i] = drawCar();
         }
@@ -22,20 +22,17 @@ public class CarApplication {
     public static Car drawCar() {
         Random random = new Random();
         int drawnCarType = random.nextInt(3);
-
-        int accelerationFactor = Car.getAccelerationFactor();
-        int breakingFactor = Car. getBreakingFactor();
         int tools = random.nextInt(20);
         int turbo = random.nextInt(11);
         int driver = random.nextInt(11);
         int abs = random.nextInt(8);
 
         if (drawnCarType == 0)
-            return new Mercedes(accelerationFactor, breakingFactor, turbo, driver);
+            return new Mercedes(turbo, driver);
         else if (drawnCarType == 1)
-            return new Ford(accelerationFactor, breakingFactor, tools);
+            return new Ford(tools);
         else
-            return new Porsche(accelerationFactor, breakingFactor, turbo, abs);
+            return new Porsche(turbo, abs);
 
     }
 

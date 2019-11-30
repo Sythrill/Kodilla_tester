@@ -18,8 +18,8 @@ public class CarUtils {
         System.out.println("Car speed: " + car.getSpeed(speedUp, speedDown));
         System.out.println("Car breaks: " + car.decreaseSpeed());
         System.out.println("Car acceleration: " + car.increaseSpeed());
-        System.out.println("Car acceleration factor: " + Car.getAccelerationFactor());
-        System.out.println("Car breaking factor: " + Car.getBreakingFactor());
+        System.out.println("Car acceleration factor: " + getAccelerator(car));
+        System.out.println("Car breaking factor: " + getBreaker(car));
 
     }
 
@@ -32,6 +32,28 @@ public class CarUtils {
             return "Porsche";
         else
             return "Unknown type of car";
+    }
+
+    private static int getAccelerator(Car car) {
+        if (car instanceof Ford)
+            return Ford.accelerationFactor;
+        else if (car instanceof Mercedes)
+            return Mercedes.accelerationFactor;
+        else if (car instanceof Porsche)
+            return Porsche.accelerationFactor;
+        else
+            return 0;
+    }
+
+    private static int getBreaker(Car car) {
+        if (car instanceof Ford)
+            return Ford.breakingFactor;
+        else if (car instanceof Mercedes)
+            return Mercedes.breakingFactor;
+        else if (car instanceof Porsche)
+            return Porsche.breakingFactor;
+        else
+            return 0;
     }
 
 }

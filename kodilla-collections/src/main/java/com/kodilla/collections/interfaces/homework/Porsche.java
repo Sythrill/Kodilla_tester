@@ -3,15 +3,15 @@ package com.kodilla.collections.interfaces.homework;
 import java.util.Random;
 
 public class Porsche implements Car {
-    private int accelerationFactor;
-    private int breakingFactor;
+    public static int accelerationFactor;
+    public static int breakingFactor;
     private int turbo;
     private int abs;
     Random random = new Random();
 
-    public Porsche(int accelerationFactor, int breakingFactor, int turbo, int abs) {
-        this.accelerationFactor = accelerationFactor;
-        this.breakingFactor = breakingFactor;
+    public Porsche(int turbo, int abs) {
+        accelerationFactor = getAccelerationFactor();
+        breakingFactor = getBreakingFactor();
         this.turbo = turbo;
         this.abs = abs;
     }

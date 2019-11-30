@@ -4,15 +4,15 @@ import java.util.Random;
 
 public class Ford implements Car {
 
-    private int accelerationFactor;
-    private int breakingFactor;
+    public static int accelerationFactor;
+    public static int breakingFactor;
     private int tools;
 
     Random random = new Random();
 
-    public Ford(int accelerationFactor, int breakingFactor, int tools) {
-        this.accelerationFactor = accelerationFactor;
-        this.breakingFactor = breakingFactor;
+    public Ford( int tools) {
+        accelerationFactor = getAccelerationFactor();
+        breakingFactor = getBreakingFactor();
         this.tools = tools;
 
     }

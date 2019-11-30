@@ -11,11 +11,11 @@ public interface Car {
 
     int decreaseSpeed();
 
-    static int getBreakingFactor() {
+    default int getBreakingFactor() {
         return random.nextInt(100);
     }
 
-    static int getAccelerationFactor() {
+    default int getAccelerationFactor() {
         return random.nextInt(200);
     }
 
