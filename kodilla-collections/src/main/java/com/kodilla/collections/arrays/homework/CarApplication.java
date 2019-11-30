@@ -23,8 +23,8 @@ public class CarApplication {
         Random random = new Random();
         int drawnCarType = random.nextInt(3);
 
-        int accelerationFactor = random.nextInt(21) + 90;
-        int breakingFactor = random.nextInt(21) + 90;
+        int accelerationFactor = Car.getAccelerationFactor();
+        int breakingFactor = Car. getBreakingFactor();
         int tools = random.nextInt(20);
         int turbo = random.nextInt(11);
         int driver = random.nextInt(11);

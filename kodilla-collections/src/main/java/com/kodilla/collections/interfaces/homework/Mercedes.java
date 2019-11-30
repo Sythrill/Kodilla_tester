@@ -17,15 +17,6 @@ public class Mercedes implements Car {
         this.turbo = turbo;
         this.driver = driver;
     }
-    @Override
-    public int getAccelerationFactor() {
-        return accelerationFactor;
-    }
-
-    @Override
-    public int getBreakingFactor(){
-        return breakingFactor;
-    }
 
     @Override
     public int getSpeed(int speedUp, int speedDown) {
@@ -43,4 +34,6 @@ public class Mercedes implements Car {
         int accelerator = random.nextInt(8);
         return accelerator * breakingFactor;
     }
+
+
 }

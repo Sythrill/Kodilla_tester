@@ -18,8 +18,8 @@ public class CarUtils {
         System.out.println("Car speed: " + car.getSpeed(speedUp, speedDown));
         System.out.println("Car breaks: " + car.decreaseSpeed());
         System.out.println("Car acceleration: " + car.increaseSpeed());
-        System.out.println("Car acceleration factor: " + car.getAccelerationFactor());
-        System.out.println("Car breaking factor: " + car.getBreakingFactor());
+        System.out.println("Car acceleration factor: " + Car.getAccelerationFactor());
+        System.out.println("Car breaking factor: " + Car.getBreakingFactor());
 
     }
 
