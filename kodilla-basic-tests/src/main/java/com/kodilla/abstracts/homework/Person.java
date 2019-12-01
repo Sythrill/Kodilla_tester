@@ -13,6 +13,6 @@ public class Person {
 
 
     public void printResponsibilities() {
-        System.out.println(this.firstName + " job responsibility is: " + this.job.getResponsibilities());
+        System.out.println(this.firstName + ", job: " + this.job.getClass().getSimpleName() +", job responsibility is: " + this.job.getResponsibilities() );
     }
 }

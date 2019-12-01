@@ -19,5 +19,6 @@ public class Application {
 
         Person person2 = new Person("Michał", 34, new Programmer());
         person2.printResponsibilities();
+
     }
 }
