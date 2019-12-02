@@ -1,5 +1,6 @@
 package com.kodilla.collections.interfaces.homework;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Porsche implements Car {
@@ -31,5 +32,20 @@ public class Porsche implements Car {
     public int decreaseSpeed() {
         int accelerator = random.nextInt(4);
         return accelerator * breakingFactor - abs;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Porsche porsche = (Porsche) o;
+        return turbo == porsche.turbo &&
+                abs == porsche.abs &&
+                Objects.equals(random, porsche.random);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(turbo, abs, random);
     }
 }
