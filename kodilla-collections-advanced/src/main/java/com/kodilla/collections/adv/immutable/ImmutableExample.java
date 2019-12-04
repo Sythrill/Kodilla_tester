@@ -5,5 +5,6 @@ public class ImmutableExample {
         Book book = new Book("John Stewart", "The last chance");
         book.getTitle();
         System.out.println(book.getTitle());
+
     }
 }
