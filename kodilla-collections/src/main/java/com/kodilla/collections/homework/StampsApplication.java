@@ -19,6 +19,4 @@ public class StampsApplication {
             System.out.println(stamp);
         }
     }
-
-
 }
