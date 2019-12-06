@@ -1,29 +1,40 @@
 package com.kodilla.collections.adv.immutable.special.homework;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BookApplication {
+
     public static void main(String[] args) {
         BookManager bookManager = new BookManager();
-        Book book1 = bookManager.creteBook("Ala ma kota", "Nieznay");
-        Book book2 = bookManager.creteBook("Mysz na wczasach", "Kot w butach");
-        Book book3 = bookManager.creteBook("Bolek i Lolek", "Tosia");
-        Book book4 = bookManager.creteBook("Bolek i Lolek", "Tosia");
 
-        System.out.println(book1.hashCode());
-        System.out.println(book2.hashCode());
-        System.out.println(book3.hashCode());
-        System.out.println(book4.hashCode());
-        System.out.println(book1.equals(book2));
-        System.out.println(book1.equals(book3));
-        System.out.println(book2.equals(book3));
-        System.out.println(book3.equals(book4));
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(bookManager.createBook("Ala ma kota", "Nieznay"));
+        bookList.add(bookManager.createBook("Mysz na wczasach", "Kot w butach"));
+        bookList.add(bookManager.createBook("Bolek i Lolek", "Tosia"));
+        bookList.add(bookManager.createBook("Bolek i Lolek", "Tosia"));
 
-        bookManager.creteBookList("Ala ma kota", "Nieznay");
-        bookManager.creteBookList("Mysz na wczasach", "Kot w butach");
-        bookManager.creteBookList("Bolek i Lolek", "Tosia");
-        bookManager.creteBookList("Bolek i Lolek", "Tosia");
+        for (Book book : bookList) {
+            System.out.println("Book hashcode " + book.hashCode());
+        }
+
+        for (Book book : bookList) {
+            bookManager.createBookList(book);
+        }
+
+        BookComparator bookComparator = new BookComparator();
+        for (Book book : bookList) {
+            for (Book book1 : bookList)
+                if (bookComparator.compare(book,book1) == 0) {
+                    System.out.println("Obiekty są takie same");
+                }else {
+                    System.out.println("Obiekt są różne");
+                }
+        }
 
         bookManager.printBooks();
-        for(Book book : bookManager.books)
-            System.out.println(book.hashCode());
+
+        for (Book book : bookManager.books)
+            System.out.println("Books hashcode: " + book.hashCode());
     }
 }
