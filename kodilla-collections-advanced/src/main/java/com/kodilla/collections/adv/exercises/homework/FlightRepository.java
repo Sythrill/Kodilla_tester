@@ -3,17 +3,15 @@ package com.kodilla.collections.adv.exercises.homework;
 import java.util.*;
 
 public class FlightRepository {
-    static List<Flight> flightsList = new ArrayList<>();
-
-    public void addFlight(Flight flight) {
-        flightsList.add(flight);
-    }
 
     public static List<Flight> getFlightsTable() {
+        List<Flight> flightsList = new ArrayList<>();
+        flightsList.add(new Flight("Warszawa", "Krakow"));
+        flightsList.add(new Flight("Warszawa", "Poznan"));
+        flightsList.add(new Flight("Poznan", "Gdansk"));
+        flightsList.add(new Flight("Krakow", "Poznan"));
+        flightsList.add(new Flight("Gdansk", "Poznan"));
         return flightsList;
     }
-
-    public int size() {
-        return flightsList.size();
-    }
 }
+

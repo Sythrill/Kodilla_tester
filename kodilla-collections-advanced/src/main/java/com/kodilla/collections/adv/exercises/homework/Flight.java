@@ -25,8 +25,8 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return arrival.equals(flight.arrival) &&
-                departure.equals(flight.departure);
+        return Objects.equals(arrival, flight.arrival) &&
+                Objects.equals(departure, flight.departure);
     }
 
     @Override
