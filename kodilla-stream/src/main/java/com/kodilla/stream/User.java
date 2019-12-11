@@ -1,9 +1,8 @@
 package com.kodilla.stream;
-
 import lombok.Getter;
 import lombok.extern.java.Log;
-
 import java.util.Objects;
+
 @Log
 @Getter
 public class User {
@@ -34,5 +33,4 @@ public class User {
     public int hashCode() {
         return Objects.hash(username, age, numberOfPosts, group);
     }
-
 }

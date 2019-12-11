@@ -1,7 +1,5 @@
 package com.kodilla.stream;
-
 import lombok.extern.java.Log;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
