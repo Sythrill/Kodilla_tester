@@ -28,4 +28,13 @@ class FlightFinderTest {
 
         assertEquals(expectedList, result);
     }
+
+    @Test
+    public void findFlightsTo2() {
+        List<Flight> result = flightFinder.findFlightsTo2("Poznan");
+        List<Flight> expectedList = new ArrayList<>();
+        expectedList.add(new Flight("Poznan", "Gdansk"));
+
+        assertEquals(expectedList, result);
+    }
 }
