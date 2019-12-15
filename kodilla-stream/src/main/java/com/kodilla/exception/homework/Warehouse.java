@@ -10,19 +10,12 @@ public class Warehouse {
         orders.add(order);
     }
 
-    public Order getOrder(String number) {
-        Order order = null;
-        try {
-            order = orders
-                    .stream()
-                    .filter(o -> o.getNumber().equals(number))
-                    .findFirst().orElseThrow(OrderDoesntExistsException::new);
-            System.out.println("Your order number: " + order.getNumber());
-        } catch (OrderDoesntExistsException e) {
-            System.out.println("Order with this number does not exists.");
-        } finally {
-            System.out.println("Thanks for searching.");
-        }
+    public Order getOrder(String number) throws OrderDoesntExistsException {
+        Order order = orders
+                .stream()
+                .filter(o -> o.getNumber().equals(number))
+                .findFirst().orElseThrow(OrderDoesntExistsException::new);
+        System.out.println("Your order number: " + order.getNumber());
         return order;
     }
 }
