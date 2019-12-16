@@ -10,5 +10,4 @@ public class Order {
     public String getNumber() {
         return number;
     }
-
 }
