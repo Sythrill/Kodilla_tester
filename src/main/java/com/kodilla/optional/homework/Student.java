@@ -4,24 +4,23 @@ import java.util.Optional;
 
 public class Student {
     private String studentName;
-    private Teacher teacher1;
-    private Optional<Object> teacher;
+    private Optional<String> teacher;
 
     public Student(String studentName, Teacher teacher) {
         this.studentName = studentName;
-        this.teacher = Optional.ofNullable(teacher);
+        this.teacher = Optional.ofNullable(teacher.getName());
     }
 
     public Student(String studentName) {
         this.studentName = studentName;
-        this.teacher = Optional.empty();
+        this.teacher = Optional.of("undefined");
     }
 
     public String getStudentName() {
         return studentName;
     }
 
-    public Teacher getTeacher() {
-        return teacher1;
+    public String getTeacher() {
+        return String.valueOf(teacher);
     }
 }
