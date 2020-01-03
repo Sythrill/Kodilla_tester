@@ -13,10 +13,9 @@ public class Application {
         studentList.add(new Student("Bob Builder", new Teacher("Morgan")));
         studentList.add(new Student("Jack Fox"));
 
-
         for (Student student : studentList) {
             String teacher = student.getTeacher();
-            System.out.println("uczeń: " + student.getStudentName() + ", nauczyciel: " + teacher);
+            System.out.println("student: " + student.getStudentName() + ", teacher: " + teacher);
         }
     }
 }
