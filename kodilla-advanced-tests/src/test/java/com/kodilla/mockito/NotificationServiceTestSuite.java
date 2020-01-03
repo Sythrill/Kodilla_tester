@@ -56,4 +56,5 @@ public class NotificationServiceTestSuite {
         notificationService.sendNotification(notification);
         Mockito.verify(client,Mockito.never()).receive(notification);
     }
+
 }
