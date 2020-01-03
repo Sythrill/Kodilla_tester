@@ -34,7 +34,7 @@ public class ForumStats {
                 .map(user -> user.getNumberOfPosts())
                 .mapToInt(n -> n)
                 .average().orElse(0.0);
-        System.out.println("Średnia postów dla osób powżej 40 lat: " + avgGreaterThanForty +
-                " średnia postów dla osób poniżej 40 lat: " + avgLowerThanForty);
+        System.out.println("average number of posts for peope over 40 years old: " + avgGreaterThanForty +
+                " average number of posts for peope under 40 years old: " + avgLowerThanForty);
     }
 }
