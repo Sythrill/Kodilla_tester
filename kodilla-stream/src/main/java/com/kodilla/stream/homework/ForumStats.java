@@ -28,7 +28,7 @@ public class ForumStats {
                 .average()
                 .getAsDouble();
 
-        double avgLowerThanForty = userRepository.getUsers()
+        double avgLowerThanForty = UserRepository.getUsersList()
                 .stream()
                 .filter(user -> user.getAge() <= 40)
                 .map(user -> user.getNumberOfPosts())
