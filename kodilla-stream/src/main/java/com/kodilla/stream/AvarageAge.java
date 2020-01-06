@@ -1,12 +1,9 @@
 package com.kodilla.stream;
-import lombok.extern.java.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Log
-public class UsersManager {
+public class AvarageAge {
     public static void main(String[] args) {
         List<User> users = new ArrayList<>();
 
@@ -18,12 +15,12 @@ public class UsersManager {
         users.add(new User("Mike Ehrmantraut", 57, 0, "Security"));
 
         UserRepository userRepository = new UserRepository(users);
-        final List<String> chemists = userRepository.getUsers()
+        double avg = userRepository.getUsers()
                 .stream()
-                .filter(user -> user.getGroup().equals("Chemists"))
-                .map(User::getUsername)
-                .collect(Collectors.toList());
-
-        log.info(String.valueOf(chemists));
+                .map(u -> u.getAge())
+                .mapToInt(n -> n)
+                .average()
+                .getAsDouble();
+        System.out.println(avg);
     }
 }
