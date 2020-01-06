@@ -14,6 +14,7 @@ public class WarehouseApp {
             warehouse.getOrder("3333");
         } catch (OrderDoesntExistsException e) {
             System.out.println("Order with that number does not exists.");
+            e.printStackTrace();
         } finally {
             System.out.println("Thanks for searching.");
         }

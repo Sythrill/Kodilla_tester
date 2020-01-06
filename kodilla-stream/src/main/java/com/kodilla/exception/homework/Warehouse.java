@@ -11,11 +11,11 @@ public class Warehouse {
     }
 
     public Order getOrder(String number) throws OrderDoesntExistsException {
-           Order order = orders
-                    .stream()
-                    .filter(o -> o.getNumber().equals(number))
-                    .findFirst().orElseThrow(OrderDoesntExistsException::new);
-            System.out.println("Your order number: " + order.getNumber());
+        Order order = orders
+                .stream()
+                .filter(o -> o.getNumber().equals(number))
+                .findFirst().orElseThrow(OrderDoesntExistsException::new);
+        System.out.println("Your order number: " + order.getNumber());
         return order;
     }
 }
