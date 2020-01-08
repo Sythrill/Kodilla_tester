@@ -1,92 +1,110 @@
 package com.kodilla.mockito;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class WeatherServiceTestSuite {
     WeatherService weatherService = new WeatherService();
     Client client = Mockito.mock(Client.class);
+    Client client1 = Mockito.mock(Client.class);
+    Client client2 = Mockito.mock(Client.class);
+    Client client3 = Mockito.mock(Client.class);
     Notification notification = Mockito.mock(Notification.class);
     Location location = Mockito.mock(Location.class);
+    Location location1 = Mockito.mock(Location.class);
+    Set<Client> clients = new HashSet<>();
+    Set<Location> locations = new HashSet<>();
+
+    @BeforeEach
+    public void prepareData() {
+        clients.add(client);
+        clients.add(client1);
+        clients.add(client2);
+        clients.add(client3);
+
+        locations.add(location);
+        locations.add(location1);
+
+        for (Location location : locations) {
+            weatherService.addSubscriber(client,location);
+        }
+    }
 
     @Test
     public void subscriberShouldReceiveNotificationFromLocationToWitchHeIsSubscribed() {
-        Location location1 = Mockito.mock(Location.class);
-        weatherService.addSubscriber(client, location);
-        weatherService.addSubscriber(client, location1);
-        weatherService.sentNotificationToLocation(notification, location);
-        weatherService.sentNotificationToLocation(notification, location1);
+        for(Location location: locations) {
+            weatherService.sentNotificationToLocation(notification, location);
+        }
+
         Mockito.verify(client, Mockito.times(2)).receive(notification);
     }
 
     @Test
     public void subscriberShouldBeAbleToRemoveSubscriptionToLocation() {
-        Location location1 = Mockito.mock(Location.class);
-        weatherService.addSubscriber(client, location);
-        weatherService.addSubscriber(client, location1);
         weatherService.removeSubscriptionFromLocation(client, location1);
-        weatherService.sentNotificationToLocation(notification, location);
-        weatherService.sentNotificationToLocation(notification, location1);
+
+        for(Location location: locations) {
+            weatherService.sentNotificationToLocation(notification, location);
+        }
+
         Mockito.verify(client, Mockito.times(1)).receive(notification);
     }
 
     @Test
     public void shouldRemoveAllSubscriptions() {
-        Location location1 = Mockito.mock(Location.class);
-        weatherService.addSubscriber(client, location);
-        weatherService.addSubscriber(client, location1);
         weatherService.removeAllSubscriptions(client);
-        weatherService.sentNotificationToLocation(notification, location);
-        weatherService.sentNotificationToLocation(notification, location1);
+
+        for(Location location: locations) {
+            weatherService.sentNotificationToLocation(notification, location);
+        }
+
         Mockito.verify(client, Mockito.never()).receive(notification);
     }
 
     @Test
     public void shouldSentNotificationOnlyToSubscribesSubscribedToLocation() {
-        Client client1 = Mockito.mock(Client.class);
-        Client client2 = Mockito.mock(Client.class);
-        Client client3 = Mockito.mock(Client.class);
-        Location location1 = Mockito.mock(Location.class);
-        weatherService.addSubscriber(client, location);
-        weatherService.addSubscriber(client, location1);
         weatherService.removeSubscriptionFromLocation(client, location1);
         weatherService.addSubscriber(client1, location);
         weatherService.addSubscriber(client2, location);
         weatherService.addSubscriber(client3, location1);
-        weatherService.sentNotificationToLocation(notification, location);
-        weatherService.sentNotificationToLocation(notification, location1);
 
-        Mockito.verify(client, Mockito.times(1)).receive(notification);
-        Mockito.verify(client1, Mockito.times(1)).receive(notification);
-        Mockito.verify(client2, Mockito.times(1)).receive(notification);
-        Mockito.verify(client3, Mockito.times(1)).receive(notification);
+        for(Location location: locations) {
+            weatherService.sentNotificationToLocation(notification, location);
+        }
+
+        for(Client client : this.clients){
+            Mockito.verify(client, Mockito.times(1)).receive(notification);
+        }
     }
 
     @Test
     public void shouldSentNotificationToAllSubscribers() {
-        Client client1 = Mockito.mock(Client.class);
-        Location location1 = Mockito.mock(Location.class);
         weatherService.addSubscriber(client, location);
         weatherService.addSubscriber(client1, location1);
+        weatherService.addSubscriber(client2, location1);
+        weatherService.addSubscriber(client3, location);
+
         weatherService.sendNotificationToAll(notification);
-        Mockito.verify(client, Mockito.times(1)).receive(notification);
-        Mockito.verify(client1, Mockito.times(1)).receive(notification);
+
+        for(Client client : this.clients){
+            Mockito.verify(client, Mockito.times(1)).receive(notification);
+        }
     }
 
     @Test
     public void shouldRemoveLocationForAllSubscribers() {
-        Client client1 = Mockito.mock(Client.class);
-        Client client2 = Mockito.mock(Client.class);
-        Client client3 = Mockito.mock(Client.class);
-        weatherService.addSubscriber(client, location);
-        weatherService.addSubscriber(client1, location);
-        weatherService.addSubscriber(client2, location);
-        weatherService.addSubscriber(client3, location);
-        weatherService.removeLocation(location);
-        Mockito.verify(client, Mockito.never()).receive(notification);
-        Mockito.verify(client1, Mockito.never()).receive(notification);
-        Mockito.verify(client2, Mockito.never()).receive(notification);
-        Mockito.verify(client3, Mockito.never()).receive(notification);
-    }
+        for (Client client : clients) {
+            weatherService.addSubscriber(client,location);
+        }
 
+        weatherService.removeLocation(location);
+
+        for(Client client : this.clients){
+            Mockito.verify(client, Mockito.never()).receive(notification);
+        }
+    }
 }
