@@ -43,7 +43,7 @@ class InvoiceTestSuite {
     }
 
     @Test
-    public void shouldGetExistingIten() {
+    public void shouldGetExistingItem() {
         //When
         Item result = invoice.getItem(2);
 
