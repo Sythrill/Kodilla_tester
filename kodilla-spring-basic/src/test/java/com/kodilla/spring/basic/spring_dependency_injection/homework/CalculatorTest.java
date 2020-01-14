@@ -42,4 +42,28 @@ class CalculatorTest {
         String result = bean.divide(3.0, 0.0);
         assertEquals("Pamietaj cholero nie dziel przez ZERO !", result);
     }
+
+    @Test
+    public void shouldReturnNegativeValueFromSubtraction() {
+        String result = bean.subtract(4.0, 5.0);
+        assertEquals("Result: -1.0", result);
+    }
+
+    @Test
+    public void shouldReturnNegativeValueFromMultiplication() {
+        String result = bean.multiply(5.0, -3.0);
+        assertEquals("Result: -15.0", result);
+    }
+
+    @Test
+    public void shouldReturnZeroFromMultiplication() {
+        String result = bean.multiply(5.0, 0.0);
+        assertEquals("Result: 0.0", result);
+    }
+
+    @Test
+    public void shouldReturnFirstValueWhenAddZero() {
+        String result = bean.add(5.0, 0.0);
+        assertEquals("Result: 5.0", result);
+    }
 }
