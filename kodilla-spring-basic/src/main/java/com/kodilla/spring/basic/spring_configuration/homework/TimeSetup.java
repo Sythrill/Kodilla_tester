@@ -13,16 +13,17 @@ public class TimeSetup {
         return LocalDateTime.now(getClock());
     }
 
-    public static void useFixedClockAt(String date){
+    public static void useFixedClockAt(String date) {
         clock = Clock.fixed(Instant.parse(date), zoneId);
         System.out.println(clock);
     }
 
-    public static void useSystemDefaultZoneClock(){
+    public static void useSystemDefaultZoneClock() {
         clock = Clock.systemDefaultZone();
     }
 
-    private static Clock getClock() {
-        return clock ;
+    private static Clock getClock()
+    {
+        return clock;
     }
 }
