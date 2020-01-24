@@ -1,11 +1,11 @@
-package com.kodilla.soap;
+package com.kodilla.library.soap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SoapApplication {
+public class LibrarySoapApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SoapApplication.class, args);
+        SpringApplication.run(LibrarySoapApplication.class, args);
     }
 }

@@ -1,12 +1,1 @@
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-    <SOAP-ENV:Header/>
-    <SOAP-ENV:Body>
-        <ns2:getCourseResponse xmlns:ns2="http://kodilla.com/courses/soap">
-            <ns2:course>
-                <ns2:name>Java Developer Plus</ns2:name>
-                <ns2:length>9</ns2:length>
-                <ns2:technology>JAVA</ns2:technology>
-            </ns2:course>
-        </ns2:getCourseResponse>
-    </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:getBookResponse xmlns:ns2="http://kodilla.com/library/soap"><ns2:book><ns2:signature>123</ns2:signature><ns2:title>The Colour of Magic</ns2:title><ns2:author>Terry Pratchett</ns2:author><ns2:year>1983</ns2:year><ns2:genre>SCI-FI</ns2:genre></ns2:book></ns2:getBookResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
