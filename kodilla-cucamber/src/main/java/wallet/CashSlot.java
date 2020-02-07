@@ -2,7 +2,6 @@ package wallet;
 
 public class CashSlot {
     private int contents;
-
     public int getContents() {
         return contents;
     }

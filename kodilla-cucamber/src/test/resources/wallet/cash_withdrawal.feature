@@ -4,3 +4,5 @@ Feature: Cash Withdrawl
         When I request $30
         Then $30 should be dispensed
         And the balance of my wallet should be $170
+
+

@@ -16,6 +16,11 @@ public class Wallet {
     }
 
     public void debit(int money) {
-        this.balance -= money;
+        if (this.balance > money) {
+            this.balance -= money;
+        }
+    }
+    public String noFunds() {
+            return "insufficient funds";
     }
 }

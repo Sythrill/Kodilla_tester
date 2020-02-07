@@ -10,6 +10,8 @@ public class Teller {
 
     public void withdraw(Wallet wallet, int amount) {
         wallet.debit(amount);
-        cashSlot.dispense(amount);
+        if (wallet.getBalance() > amount) {
+            cashSlot.dispense(amount);
+        }
     }
 }
