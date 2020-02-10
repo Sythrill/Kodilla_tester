@@ -25,7 +25,7 @@ public class OverdrawnSteps implements En {
         });
 
         Then("I should be told that I have insufficient funds in my account", () -> {
-            Assert.assertEquals("insufficient funds", wallet.noFunds());
+            Assert.assertEquals("insufficient funds", wallet.noFunds(200));
         });
     }
 }

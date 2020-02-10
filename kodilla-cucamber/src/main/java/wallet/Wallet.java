@@ -20,7 +20,16 @@ public class Wallet {
             this.balance -= money;
         }
     }
-    public String noFunds() {
+
+    public String noFunds(int money) {
+        if (this.balance < money) {
             return "insufficient funds";
+        }
+        return "Wallet balance= " + balance;
+    }
+
+    @Override
+    public String toString() {
+        return "Wallet balance= " + balance;
     }
 }
