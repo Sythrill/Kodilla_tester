@@ -4,18 +4,21 @@ import io.cucumber.java8.En;
 import org.junit.Assert;
 
 public class WalletSteps implements En {
-    private Wallet wallet = new Wallet();
     private CashSlot cashSlot = new CashSlot();
+    private Wallet wallet = new Wallet(cashSlot);
+    private MoneyMachine moneyMachine = new MoneyMachine(wallet);
 
     public WalletSteps() {
 
         Given("I have deposited $200 in my wallet", () -> {
+            moneyMachine.createAtmBalance(500);
             wallet.deposit(200);
             Assert.assertEquals("Incorrect wallet balance", 200, wallet.getBalance());
         });
 
         When("I request $30", () -> {
-            Teller teller = new Teller(cashSlot);
+            Teller teller = new Teller(cashSlot,moneyMachine);
+            cashSlot.setFault(false);
             teller.withdraw(wallet, 30);
         });
 

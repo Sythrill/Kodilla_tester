@@ -4,7 +4,8 @@ import io.cucumber.java8.En;
 import org.junit.Assert;
 
 public class DisplaySteps implements En {
-    private Wallet wallet = new Wallet();
+    private CashSlot cashSlot = new CashSlot();
+    private Wallet wallet = new Wallet(cashSlot);
 
     public DisplaySteps() {
         Given("my account has been credited with $100", () -> {

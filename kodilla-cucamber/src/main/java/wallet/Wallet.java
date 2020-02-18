@@ -2,8 +2,10 @@ package wallet;
 
 public class Wallet {
     private int balance = 0;
-
-    public Wallet() {
+    private CashSlot cashSlot;
+    private MoneyMachine moneyMachine;
+    public Wallet(CashSlot cashSlot) {
+        this.cashSlot = cashSlot;
 
     }
 
@@ -16,7 +18,7 @@ public class Wallet {
     }
 
     public void debit(int money) {
-        if (this.balance > money) {
+        if (this.balance > money && !cashSlot.isInjectionFault()) {
             this.balance -= money;
         }
     }

@@ -5,8 +5,9 @@ import org.junit.Assert;
 
 public class OverdrawnSteps implements En {
 
-    private Wallet wallet = new Wallet();
     private CashSlot cashSlot = new CashSlot();
+    private Wallet wallet = new Wallet(cashSlot);
+    private MoneyMachine moneyMachine = new MoneyMachine(wallet);
 
     public OverdrawnSteps() {
         Given("my wallet has been credited with $100", () -> {
@@ -15,7 +16,7 @@ public class OverdrawnSteps implements En {
         });
 
         When("I withdraw $200", () -> {
-            Teller teller = new Teller(cashSlot);
+            Teller teller = new Teller(cashSlot, moneyMachine);
             teller.withdraw(wallet, 200);
         });
 
