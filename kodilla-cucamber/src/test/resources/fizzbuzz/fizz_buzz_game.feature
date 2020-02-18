@@ -6,7 +6,7 @@ Feature: FizzBuzz game
      Then I should be told <answer>
      Examples:
      |number|answer|
-     |      one     |     Nope    |
-     |      six     |  Fizz   |
+     |      one     | Nope   |
+     |      six     | Fizz   |
      |      ten     | Buzz   |
      |      fifteen |FizzBuzz|
