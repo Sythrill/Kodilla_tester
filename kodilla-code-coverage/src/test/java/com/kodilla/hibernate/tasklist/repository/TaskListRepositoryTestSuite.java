@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,6 +20,25 @@ public class TaskListRepositoryTestSuite {
 
     @Autowired
     private TaskListRepository taskListRepository;
+
+    @Test
+    public void testFindByListName() {
+        //Given
+        String listName = "New list of tasks";
+        String description = "Very useful and important task's list";
+        TaskList taskList = new TaskList(listName, description);
+        taskListRepository.save(taskList);
+
+        //When
+        List<TaskList> resultList = taskListRepository.findByListName(listName);
+
+        //Then
+        Assert.assertEquals(1, resultList.size());
+
+        //Cleanup
+        int id = resultList.get(0).getId();
+        taskListRepository.deleteById(id);
+    }
 
     @Test
     public void testTaskListRepositorySaveWithTasks() {
